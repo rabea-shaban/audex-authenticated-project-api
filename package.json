@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon src/server.ts",
+    "dev": "node node_modules/tsx/dist/cli.mjs watch src/server.ts",
     "build": "tsc",
-    "start": "node dist/server.js"
+    "start": "node dist/server.js",
+    "seed": "tsx src/seed/seed.ts"
   },
   "keywords": [],
   "author": "",
@@ -30,6 +31,7 @@
     "nodemon": "^3.1.14",
     "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
+    "tsx": "^4.23.13",
     "typescript": "^5.8.3"
   }
 }
