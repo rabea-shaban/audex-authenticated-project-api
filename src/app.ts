@@ -3,6 +3,7 @@ import cookieParser from "cookie-parser";
 import authRoutes from "./modules/auth/auth.routes";
 import errorMiddleware from "./middlewares/error.middleware";
 import projectRoutes from "./modules/project/project.routes";
+import userRoutes from "./modules/user/user.routes";
 const app = express();
 
 app.use(express.json());
@@ -17,6 +18,7 @@ app.get("/", (_req, res) => {
 
 app.use("/api/auth", authRoutes);
 app.use("/api/projects", projectRoutes);
+app.use("/api/users", userRoutes);
 app.use(errorMiddleware);
 
 export default app;

@@ -5,6 +5,7 @@ interface IUser {
   email: string;
   password: string;
   role: "ADMIN" | "MANAGER" | "USER";
+  manager?: mongoose.Types.ObjectId;
 }
 
 const userSchema = new Schema<IUser>(
@@ -33,6 +34,12 @@ const userSchema = new Schema<IUser>(
       type: String,
       enum: ["ADMIN", "MANAGER", "USER"],
       default: "USER",
+    },
+
+    manager: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+      default: null,
     },
   },
   {
