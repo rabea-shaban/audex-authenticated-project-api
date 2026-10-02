@@ -57,6 +57,15 @@ export const register = async (
   }
 };
 
+export const logout = (_req: Request, res: Response) => {
+  res.clearCookie("accessToken", {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "strict",
+  });
+  return res.status(200).json({ success: true, message: "Logged out successfully" });
+};
+
 export const login = async (
   req: Request,
   res: Response,
